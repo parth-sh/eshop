@@ -1,0 +1,19 @@
+<mat-toolbar>
+    <span routerLink="/" class="link">Home</span>
+
+    <span>
+        {{"Username"}}
+        <mat-select style="width: 0">
+            <mat-option value="option1" routerLink="/my/orders">My orders</mat-option>
+            <mat-option value="option2" routerLink="/admin/orders">Manage orders</mat-option>
+            <mat-option value="option3" routerLink="/admin/products">Manage products</mat-option>
+            <mat-option value="option3">Logout</mat-option>
+        </mat-select>
+    </span>
+
+    <span class="example-spacer"></span>
+    <button mat-raised-button routerLink="/login" color="primary">Login</button>
+    <button mat-button routerLink="/shopping-cart" matBadge="{{0}}">
+        <mat-icon>shopping_cart</mat-icon>&ensp;Cart
+    </button>
+</mat-toolbar>

@@ -24,5 +24,11 @@ AngularFireModule.initializeApp(environment.firebaseConfig)
 ```
 npm install bootstrap
 
-@import '~bootstrap/dist/css/bootstrap.css'
+@import '~bootstrap/dist/css/bootstrap.css';
+```
+
+## Angular material
+https://youtu.be/jUfEn032IL8
+```
+ng.cmd add @angular/material
 ```
