@@ -1,27 +1,28 @@
-# Eshop
+# References
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
+ng.cmd new eshop --skip-tests
 
-## Development server
+## Angular firbase
+https://console.firebase.google.com/u/0/project/eshop-bad23/overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+https://javascript.plainenglish.io/set-up-firebase-in-your-angular-app-for-the-first-time-79e0875e504b
 
-## Code scaffolding
+https://stackoverflow.com/a/69132452/9229695
+```
+npm install firebase @angular/fire
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
-## Build
+AngularFireModule.initializeApp(environment.firebaseConfig)
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Bootstrap
+```
+npm install bootstrap
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@import '~bootstrap/dist/css/bootstrap.css'
+```
