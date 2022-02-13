@@ -34,6 +34,12 @@ const MaterialComponents = [
   MatSelectModule,
 ]
 
+const FireBaseComponents = [
+  AngularFireModule.initializeApp(environment.firebaseConfig),
+  AngularFireDatabaseModule,
+  AngularFireAuthModule,
+]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,9 +57,7 @@ const MaterialComponents = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
+    FireBaseComponents,
     BrowserAnimationsModule,
     MaterialComponents,
   ],

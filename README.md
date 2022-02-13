@@ -32,3 +32,11 @@ https://youtu.be/jUfEn032IL8
 ```
 ng.cmd add @angular/material
 ```
+
+## Firebase setup
+```
+firebase.cmd login
+firebase.cmd init
+ng.cmd build
+firebase.cmd deploy
+```
