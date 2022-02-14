@@ -8,9 +8,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSelectModule } from '@angular/material/select';
 
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth, getAuth } from '@angular/fire/auth';
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,8 +38,11 @@ const MaterialModules = [
 ]
 
 const FireBaseModules = [
-  provideFirebaseApp(() => initializeApp(environment.firebase)),
-  provideAuth(() => getAuth()),
+  AngularFireModule.initializeApp(environment.firebase),
+  AngularFireAuthModule,
+  AngularFireStorageModule,
+  AngularFirestoreModule,
+  AngularFireDatabaseModule,
 ]
 
 @NgModule({
