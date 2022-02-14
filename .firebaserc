@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "eshop-bad23"
+  },
+  "targets": {
+    "eshop-bad23": {
+      "hosting": {
+        "eshop": [
+          "eshop-bad23"
+        ]
+      }
+    }
   }
 }
