@@ -3,15 +3,19 @@
 
     <span class="example-spacer"></span>
 
-    <button mat-raised-button routerLink="/login" color="primary" *ngIf="!loggedIn">Login</button>
+    <ng-template #anonymousUser>
+        <button mat-raised-button routerLink="/login" color="primary">Login</button>
+    </ng-template>
 
-    <button mat-raised-button color="primary" style="padding-right: 2rem;" *ngIf="loggedIn">
-        {{"Username"}}
+    <button *ngIf="appUser; else anonymousUser" mat-raised-button color="primary" style="padding-right: 1.5rem;">
+        {{appUser.name}}
         <mat-select style="width: 0">
             <mat-option value="option1" routerLink="/my/orders">My orders</mat-option>
-            <mat-option value="option2" routerLink="/admin/orders">Manage orders</mat-option>
-            <mat-option value="option3" routerLink="/admin/products">Manage products</mat-option>
-            <mat-option value="option3">Logout</mat-option>
+            <ng-container *ngIf="appUser.isAdmin">
+                <mat-option value="option2" routerLink="/admin/orders">Manage orders</mat-option>
+                <mat-option value="option3" routerLink="/admin/products">Manage products</mat-option>
+            </ng-container>
+            <mat-option value="option3" (click)="logout()">Logout</mat-option>
         </mat-select>
     </button>
 

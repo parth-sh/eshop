@@ -55,3 +55,25 @@ ng.cmd deploy
 
 ## Authentication compat mode
 https://github.com/angular/angularfire/blob/master/docs/auth/getting-started.md
+
+
+
+
+<br><br><br><br>
+
+# Unvisited
+
+## Unsubscribe from firebase as it is an infinite observable
+Http service observables are finite
+
+finite vs infinite observables(https://youtu.be/5nCTego9JVg?t=71)
+
+async pipe and unsubscribe 
+(navbar.html , login.ts)
+# If there are multiple instances of a component we need to unsubscribe if a subscription exists in that component.
+
+## *ngif condition; else ngComponentRef
+(refer to navbar login button)
+
+##  Pipeable operators
+(refer to AuthGaurd map)
