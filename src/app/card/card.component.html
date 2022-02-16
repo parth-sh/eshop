@@ -1,7 +1,14 @@
-<div class="card">
-    <img class="img_section" src={{imageUrl}}>
-    <div class="deatail_section">
-        <span><b>{{title}}</b></span>
-        <span>{{price | currency:"INR"}}</span>
-    </div>
-</div>
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>{{title | titlecase}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{imageUrl}}">
+    <mat-card-content>
+        <span class="price">{{price | currency:"INR"}}</span>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>-</button>
+        <button>2</button>
+        <button mat-button>+</button>
+    </mat-card-actions>
+</mat-card>
