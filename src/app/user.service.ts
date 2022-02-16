@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject } from '@angular/fire/compat/database';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import firebase from 'firebase/compat/app';
 import { AppUser } from './models/app-user';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,7 @@ export class UserService {
 
   constructor(private db: AngularFireDatabase) { }
 
+  // TODO: change true to false for non-admin user 
   save(user: firebase.User) {
     this.db.object('/users/' + user.uid).update({
       name: user.displayName,

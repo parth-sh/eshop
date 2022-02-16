@@ -1,0 +1,50 @@
+<mat-grid-list cols="2">
+    <mat-grid-tile>
+        <form #f="ngForm" (ngSubmit)="save(f.value)">
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input #title="ngModel" [(ngModel)]="product.title" name="title" type="text" matInput required>
+                <mat-error *ngIf="title.invalid && title.touched">Title is Required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>Price</mat-label>
+                <input #price="ngModel" [(ngModel)]="product.price" name="price" type="number" placeholder="0" matInput
+                    required [min]="0">
+                <span matPrefix>₹&nbsp;&nbsp;</span>
+                <span matSuffix>.00</span>
+                <mat-error *ngIf="price.invalid && price.touched">
+                    <div *ngIf="price.errors?.['min']">Price must be greater than 0</div>
+                    <div *ngIf="price.errors?.['required']">Price is required</div>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Category</mat-label>
+                <mat-select #category="ngModel" [(ngModel)]="product.category" name="category" required>
+                    <mat-option *ngFor="let c of (categories$ | async) as categories" [value]=c.key>{{c.name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="category.invalid && category.touched">Category is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Image Url</mat-label>
+                <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="imageUrl" type="text" matInput required
+                    url>
+                <mat-error *ngIf="imageUrl.invalid && imageUrl.touched">
+                    <div *ngIf="imageUrl.errors?.['required']">Category is required</div>
+                    <div *ngIf="imageUrl.errors?.['url']">Category must be a url</div>
+                </mat-error>
+            </mat-form-field>
+
+            <span>
+                <button mat-raised-button color="primary">Save</button>
+                <button type="button" (click)="delete()" mat-raised-button color="primary">Delete</button>
+            </span>
+        </form>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <product-card [title]="title.value" [price]="price.value" [imageUrl]="imageUrl.value"></product-card>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -56,7 +56,11 @@ ng.cmd deploy
 ## Authentication compat mode
 https://github.com/angular/angularfire/blob/master/docs/auth/getting-started.md
 
+## Mat form field not styling
+https://stackoverflow.com/a/67924745/9229695
 
+## Validation library
+ng2-validation
 
 
 <br><br><br><br>
