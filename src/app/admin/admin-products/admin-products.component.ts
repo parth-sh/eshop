@@ -16,13 +16,7 @@ export class AdminProductsComponent implements OnInit {
   constructor(private producService: ProductService) { }
 
   ngOnInit(): void {
-    this.producService.getProducts()
-      .pipe(map(x => {
-        return x;
-      }))
-      .subscribe(products => {
-        this.dataSource = products
-      });
+    this.producService.getProducts().subscribe(products => { this.dataSource = products });
   }
 
 }

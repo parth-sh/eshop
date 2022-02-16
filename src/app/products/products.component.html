@@ -9,7 +9,7 @@
         </mat-selection-list>
     </div>
     <div class="products-showcase">
-        <product-card *ngFor="let p of products$ | async" [title]="p.title" [price]="p.price" [imageUrl]="p.imageUrl">
+        <product-card *ngFor="let p of products$ | async" [product]="p">
         </product-card>
     </div>
 </div>

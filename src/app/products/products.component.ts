@@ -14,7 +14,7 @@ import { ProductService } from '../product.service';
 })
 export class ProductsComponent implements OnInit {
 
-  products$?: Observable<ProductRecieved[] | Product[]>
+  products$?: Observable<ProductRecieved[]>
   categories$?: Observable<CategoryRecieved[]>
   categoryKey?: string | null
 
@@ -27,6 +27,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParamMap.subscribe(params => {
       let category = params.get('category');
+
       if (category) this.products$ = this.productServie.getProductsByCategoryFilter(category);
       else this.products$ = this.productServie.getProducts();
     })

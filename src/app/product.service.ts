@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Product } from './models/product';
 import { ProductRecieved } from './models/product-recieved';
-import { Observable, map } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +30,14 @@ export class ProductService {
   }
 
   getProductsByCategoryFilter(category: string) {
-    console.log("filter applied", category)
-    return this.db.list('/products', ref => ref.orderByChild("category").equalTo(category)).valueChanges() as Observable<Product[]>
+    return this.db.list('/products', ref => ref.orderByChild("category").equalTo(category)).snapshotChanges()
+      .pipe(map(snapshotArr => {
+        return snapshotArr.map(x => {
+          let key = x.payload.key
+          let product = x.payload.val() as Product
+          return { ...{ key: key }, ...product }
+        })
+      })) as Observable<ProductRecieved[]>;
   }
 
   getProduct(productId: string) {
@@ -45,5 +51,4 @@ export class ProductService {
   deleteProduct(productId: string) {
     this.db.object('/products/' + productId).remove();
   }
-
 }
