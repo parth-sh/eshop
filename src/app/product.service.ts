@@ -29,6 +29,11 @@ export class ProductService {
       }));
   }
 
+  getProductsByCategoryFilter(category: string) {
+    console.log("filter applied", category)
+    return this.db.list('/products', ref => ref.orderByChild("category").equalTo(category)).valueChanges() as Observable<Product[]>
+  }
+
   getProduct(productId: string) {
     return this.db.object('/products/' + productId).valueChanges() as Observable<Product>;
   }

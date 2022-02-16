@@ -1,1 +1,15 @@
-<p>products works!</p>
+<div class="page">
+    <div class="categories-showcase">
+        <h2>Categories </h2>
+        <mat-selection-list #shoes [multiple]="false">
+            <mat-list-option *ngFor="let category of categories$ | async" [value]="category.key" routerLink="/"
+                [queryParams]="{category: category.key}">
+                {{category.name}}
+            </mat-list-option>
+        </mat-selection-list>
+    </div>
+    <div class="products-showcase">
+        <product-card *ngFor="let p of products$ | async" [title]="p.title" [price]="p.price" [imageUrl]="p.imageUrl">
+        </product-card>
+    </div>
+</div>

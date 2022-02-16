@@ -15,6 +15,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 
 // Custom validation module
 import { CustomFormsModule } from 'ng2-validation'
@@ -33,7 +35,6 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
-import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { LoginComponent } from './login/login.component';
@@ -53,6 +54,8 @@ const MaterialModules = [
   MatInputModule,
   MatGridListModule,
   MatTableModule,
+  MatCardModule,
+  MatListModule,
 ]
 
 const FireBaseModules = [
@@ -70,7 +73,6 @@ const FireBaseModules = [
     OrderSuccessComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    HomeComponent,
     ProductsComponent,
     ShoppingCartComponent,
     LoginComponent,

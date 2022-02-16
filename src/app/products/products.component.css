@@ -1,0 +1,21 @@
+
+.page {
+    display: flex;
+    flex-direction: row;
+}
+
+.categories-showcase {
+    flex: 1;
+    margin: 1rem;
+}
+
+.products-showcase {
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.products-showcase > product-card {
+    cursor: pointer;
+}
