@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   appUser?: AppUser | null
 
   constructor(public authService: AuthService) {
+    // no need for unsubscribe only one instance
     authService.appUser$.subscribe(appUser => this.appUser = appUser);
   }
 
