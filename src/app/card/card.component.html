@@ -7,12 +7,17 @@
         <span class="price">{{product?.price | currency:"INR"}}</span>
     </mat-card-content>
     <mat-card-actions>
-        <button (click)="addToCart()" mat-button>
-            <mat-icon>add_circle_outline</mat-icon>
-        </button>
-        {{product_count}}&ensp;in cart
-        <button (click)="deleteFromCart()" mat-button>
-            <mat-icon>remove_circle_outline</mat-icon>
+        <ng-template #options>
+            <button (click)="addToCart()" mat-button>
+                <mat-icon>add_circle_outline</mat-icon>
+            </button>
+            <span>{{product_count}}&ensp;in cart</span>
+            <button (click)="deleteFromCart()" mat-button>
+                <mat-icon>remove_circle_outline</mat-icon>
+            </button>
+        </ng-template>
+        <button mat-raised-button (click)="addToCart()" *ngIf="product_count == 0; else options">
+            Add to cart
         </button>
     </mat-card-actions>
 </mat-card>
