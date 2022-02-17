@@ -15,11 +15,11 @@ export class CardComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit(): void {
-    this.getProductQuantity();
+    this.getProductCount();
   }
 
-  getProductQuantity() {
-    if (this.product) this.shoppingCartService.getProductQuantity(this.product).then(value => this.product_count = value);
+  getProductCount() {
+    if (this.product) this.shoppingCartService.getProductCount(this.product).then(value => this.product_count = value);
   }
 
   addToCart() {

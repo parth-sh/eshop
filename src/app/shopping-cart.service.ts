@@ -64,7 +64,7 @@ export class ShoppingCartService {
     return cart[product.key]
   }
 
-  async getProductQuantity(product: ProductRecieved): Promise<number> {
+  async getProductCount(product: ProductRecieved): Promise<number> {
     let cart = await this.getOrCreateCart();
     return cart[product.key] || 0;
   }
