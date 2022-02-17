@@ -11,6 +11,9 @@ const SHOPPING_CART_NAME: string = "eshop_cart"
 // TODO: improve cart service can use observable for cart obj
 export class ShoppingCartService {
 
+  // TODO: change shopping cart stucture, must be key: {price,count,key,title}; PRIORITY HIGH
+  // for iffective price calculation on cart and checkout page 
+
   // https://stackoverflow.com/a/71162634/9229695
   cart_products_count: number = 1;
 
