@@ -4,6 +4,11 @@
     margin: 0.5rem;
 }
 
+.addToCartButton {
+    width: 100%;
+    background-color: grey;
+}
+
 .price {
     font-weight: 900;
 }

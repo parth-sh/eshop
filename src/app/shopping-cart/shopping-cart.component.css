@@ -1,0 +1,11 @@
+table {
+    width: 50%;
+}
+
+button {
+    background-color: #fbbf77;
+}
+
+.row {
+    cursor: pointer;
+}

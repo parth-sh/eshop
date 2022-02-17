@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import { of, Subject } from 'rxjs';
 import { ProductRecieved } from './models/product-recieved';
-
-interface ShoppingCart {
-  // Index signature
-  [key: string]: number;
-}
+import { ShoppingCart } from './models/shopping-cart';
 
 const SHOPPING_CART_NAME: string = "eshop_cart"
 
 @Injectable({
   providedIn: 'root'
 })
+// TODO: improve cart service can use observable for cart obj
 export class ShoppingCartService {
 
   // https://stackoverflow.com/a/71162634/9229695
@@ -27,7 +24,7 @@ export class ShoppingCartService {
     );
   }
 
-  private async getOrCreateCart(): Promise<ShoppingCart> {
+  public async getOrCreateCart(): Promise<ShoppingCart> {
     let cart = await localStorage.getItem(SHOPPING_CART_NAME);
     let paresedCart: ShoppingCart = JSON.parse(cart as string);
     if (paresedCart) return paresedCart;
@@ -36,6 +33,11 @@ export class ShoppingCartService {
       JSON.stringify({})
     );
     return {};
+  }
+
+  clearCart() {
+    localStorage.removeItem(SHOPPING_CART_NAME);
+    this.cart_products_count = 0
   }
 
   private async getAllProductsCount(): Promise<number> {
