@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
   appUser?: AppUser | null
 
-  constructor(public authService: AuthService, public cartService: ShoppingCartService) { }
+  constructor(public authService: AuthService, public shoppingCartService: ShoppingCartService) { }
 
   ngOnInit(): void {
     // no need for unsubscribe only one instance
