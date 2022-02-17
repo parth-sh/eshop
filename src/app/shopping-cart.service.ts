@@ -38,6 +38,17 @@ export class ShoppingCartService {
     return {};
   }
 
+  private async getAllProductsCount(): Promise<number> {
+    let cart = await this.getOrCreateCart();
+    let total = 0;
+
+    for (let property in cart) {
+      total += cart[property];
+    }
+
+    return total;
+  }
+
   async addToCart(product: ProductRecieved): Promise<number> {
     let cart = await this.getOrCreateCart();
     let product_count = cart[product.key];
@@ -69,14 +80,4 @@ export class ShoppingCartService {
     return cart[product.key] || 0;
   }
 
-  async getAllProductsCount(): Promise<number> {
-    let cart = await this.getOrCreateCart();
-    let total = 0;
-
-    for (let property in cart) {
-      total += cart[property];
-    }
-
-    return total;
-  }
 }
