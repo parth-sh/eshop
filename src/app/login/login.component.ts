@@ -11,6 +11,8 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
+  // Implement normal login feature
+
   authUserSub?: Subscription;
 
   constructor(
